@@ -21,6 +21,7 @@ const failureMessage = function (newText) {
 
 const onCreateGameSuccess = function (responseData) {
   successMessage('Time For A New Game! Make Your First Move')
+  store.game = responseData.game
   console.log('win' + responseData)
 }
 
@@ -29,8 +30,14 @@ const onCreateGameFailure = function () {
   console.log('lose')
 }
 
+const updateGameSuccess = function (responseData) {
+  store.game = responseData.game
+  console.log(responseData)
+}
+
 module.exports = {
   invalidMove,
   onCreateGameSuccess,
-  onCreateGameFailure
+  onCreateGameFailure,
+  updateGameSuccess
 }

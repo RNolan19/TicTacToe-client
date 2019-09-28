@@ -25,7 +25,7 @@ const onSignUpFailure = function () {
 // responseData is just a parameter.  It is the data the API sends back when we make a request
 // In this case, it has our user and our user's token
 const onSignInSuccess = function (responseData) {
-  successMessage('Signed in successfully!')
+  successMessage('Signed in successfully! Click "New Game" button to begin!')
   console.log('response data is', responseData)
   // save the user we got from the API inside of 'store', so we can use it later
   // from any file

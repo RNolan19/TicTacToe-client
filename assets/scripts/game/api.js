@@ -26,6 +26,28 @@ const createGame = function () {
   })
 }
 
+const updateGame = function (cell, player) {
+  return $.ajax({
+    method: 'PATCH',
+    // when you hit new game, a game id is generated and put in Store
+    // store.game.id jsut gives us the number of the gameid, ie 250
+    url: config.apiUrl + `/games/` + store.game.id,
+    headers: {
+    // the token was saved in the store when we signed up
+    // we access it through store.user.token
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {game: {
+      cell: {
+        index: cell,
+        value: player
+      },
+      over: false
+    }}
+  })
+}
+
 module.exports = {
-  createGame
+  createGame,
+  updateGame
 }
