@@ -25,10 +25,21 @@ const onCreateGameSuccess = function (responseData) {
   store.game = responseData.game
   console.log('win' + responseData)
   $('#gameboard').show()
+  $('#get-record').show()
 }
 
 const onCreateGameFailure = function () {
   failureMessage('New Game Did Not Load Properly')
+  console.log('lose')
+}
+
+const onGetRecordSuccess = function (responseData) {
+  successMessage(store.game.player_x.email + ': You have played ' + responseData.games.length + ' games of flawless Tic Tac Toe!')
+  console.log(responseData)
+}
+
+const onGetRecordFailure = function () {
+  failureMessage('Get Record Not Load Properly')
   console.log('lose')
 }
 
@@ -41,5 +52,7 @@ module.exports = {
   invalidMove,
   onCreateGameSuccess,
   onCreateGameFailure,
-  updateGameSuccess
+  updateGameSuccess,
+  onGetRecordSuccess,
+  onGetRecordFailure
 }

@@ -20,8 +20,10 @@ $(() => {
   $('#gameboard').hide()
   $('#new-game').hide()
   $('.h2newgame').hide()
+  $('#get-record').hide()
 
   $('.box').on('click', gameEvents.onBoxClick)
 
   $('#new-game').on('click', gameEvents.onCreateGame)
+  $('#get-record').on('click', gameEvents.onGetRecord)
 })

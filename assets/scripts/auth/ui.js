@@ -66,6 +66,7 @@ const onChangePasswordFailure = function () {
 const onSignOutSuccess = function (responseData) {
   successMessage('Signed out successfully!')
   $('#sign-in').show()
+  $('#sign-in').trigger('reset')
   $('#sign-up').show()
   $('.h2signin').show()
   $('.h2signup').show()

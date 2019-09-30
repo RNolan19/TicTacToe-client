@@ -15,8 +15,6 @@ const switchPlayer = function () {
     player = 'O'
   } else {
     player = 'X'
-
-    console.log(player)
   }
 }
 
@@ -30,6 +28,14 @@ const onCreateGame = function (event) {
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
   $('.box').text('')
+}
+
+const onGetRecord = function (event) {
+  event.preventDefault()
+
+  api.getRecord()
+    .then(ui.onGetRecordSuccess)
+    .catch(ui.onGetRecordFailure)
 }
 
 const isGameOver = function () {
@@ -97,7 +103,7 @@ const onBoxClick = function (event) {
   // if the box you click on has no text, add 'x'
 
   if ($(event.target).text() === '') {
-   // const box = event.target
+    // const box = event.target
     $(event.target).text(player)
     $('#message').text(`Player ${player} has made a successful move`)
     store.game.cells[cell] = player
@@ -120,5 +126,6 @@ module.exports = {
   onBoxClick,
   onCreateGame,
   switchPlayer,
-  isGameOver
+  isGameOver,
+  onGetRecord
 }
