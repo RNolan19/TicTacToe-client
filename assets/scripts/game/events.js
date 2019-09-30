@@ -6,6 +6,8 @@ const ui = require('./ui')
 const store = require('../store')
 
 let player = 'X'
+let counter = 0
+let gameOver = false
 
 // switching between 'X' and 'O'
 const switchPlayer = function () {
@@ -20,6 +22,9 @@ const switchPlayer = function () {
 
 const onCreateGame = function (event) {
   event.preventDefault()
+  gameOver = false
+  player = 'X'
+  counter = 0
 
   api.createGame()
     .then(ui.onCreateGameSuccess)
@@ -27,40 +32,60 @@ const onCreateGame = function (event) {
   $('.box').text('')
 }
 
-const gameOverMessage = function () {
-  $('#message').text(`Player ${player} wins!  You are a Tic Tac Toe genius!
-    Click "New Game" To See If You Can Keep Your Streak Alive!`)
-  $('#gameboard').hide()
-  switchPlayer('X')
-}
-
 const isGameOver = function () {
   console.log(store.game.cells)
+
+  if (gameOver === false && counter < 9) {
+    counter += 1
+  }
+
   if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2]) {
-    gameOverMessage()
+    gameOver = true
+    checkForWin()
   } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[3] && store.game.cells[3] === store.game.cells[6]) {
     // endGame()
-    gameOverMessage()
+    checkForWin()
+    gameOver = true
     console.log('You connected row 036. You Win!')
   } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8]) {
     console.log('You connected row 048.  You win!')
-    gameOverMessage()
+    checkForWin()
+    gameOver = true
   } else if (store.game.cells[1] !== '' && store.game.cells[1] === store.game.cells[4] && store.game.cells[4] === store.game.cells[7]) {
     console.log('You connected row 147.  You win!')
-    gameOverMessage()
+    checkForWin()
+    gameOver = true
   } else if (store.game.cells[2] !== '' && store.game.cells[2] === store.game.cells[5] && store.game.cells[5] === store.game.cells[8]) {
     console.log('You connected row 258.  You win!')
-    gameOverMessage()
+    checkForWin()
+    gameOver = true
   } else if (store.game.cells[2] !== '' && store.game.cells[2] === store.game.cells[4] && store.game.cells[4] === store.game.cells[6]) {
     console.log('You connected row 246.  You win!')
-    gameOverMessage()
+    checkForWin()
+    gameOver = true
   } else if (store.game.cells[3] !== '' && store.game.cells[3] === store.game.cells[4] && store.game.cells[4] === store.game.cells[5]) {
     console.log('You connected row 345. You win!')
-    gameOverMessage()
+    checkForWin()
+    gameOver = true
   } else if (store.game.cells[6] !== '' && store.game.cells[6] === store.game.cells[7] && store.game.cells[7] === store.game.cells[8]) {
     console.log('You connected row 678.  You win!')
-    gameOverMessage()
+    checkForWin()
+    gameOver = true
+  } else if (counter === 9) {
+    checkForWin()
   }
+}
+
+const checkForWin = function () {
+  if (counter === 9 && gameOver === false) {
+    $('#message').text("It's a tie.  You can't end on a draw.  Click 'New Game' to play again!")
+  } else if (counter % 2 === 1) {
+    $('#message').text("Player X wins!  You are a Tic Tac Toe Maestro!  Click 'New Game' to play again and keep the winning streak alive!")
+  } else if (counter % 2 === 0) {
+    $('#message').text("Player O wins!  You are a Tic Tac Toe Prodigy!  Click 'New Game' to play again and keep the winning streak alive!")
+  }
+  $('#gameboard').hide()
+  switchPlayer('X')
 }
 
 const onBoxClick = function (event) {
