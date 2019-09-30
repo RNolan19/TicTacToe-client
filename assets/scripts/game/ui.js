@@ -1,9 +1,10 @@
 'use strict'
 // require store object, so we can keep track of the user and their unique token
 const store = require('../store')
+const events = require('./events')
 
 const invalidMove = function () {
-  $('#message').text('Not a valid move, sir.  Please select another square')
+  $('#message').text('Invalid move.  Please select an empty square')
   $('#message').addClass('failure')
 }
 
@@ -20,9 +21,10 @@ const failureMessage = function (newText) {
 }
 
 const onCreateGameSuccess = function (responseData) {
-  successMessage('Time For A New Game! Make Your First Move')
+  successMessage('Time For A New Game! Player X Will Go First')
   store.game = responseData.game
   console.log('win' + responseData)
+  $('#gameboard').show()
 }
 
 const onCreateGameFailure = function () {

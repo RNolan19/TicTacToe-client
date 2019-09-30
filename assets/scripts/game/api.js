@@ -3,6 +3,7 @@ const config = require('../config')
 // store data inside our 'store'.  Store our 'user'
 const store = require('../store')
 
+
 // createExample will make a request to our API, which will create a new Example
 // we require formData because the API needs to know what fields(text) should be in our new Example
 const createGame = function () {

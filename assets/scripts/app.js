@@ -13,6 +13,14 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
 
+  $('#change-password').hide()
+  $('.h2changepassword').hide()
+  $('#sign-out').hide()
+  $('.h2signout').hide()
+  $('#gameboard').hide()
+  $('#new-game').hide()
+  $('.h2newgame').hide()
+
   $('.box').on('click', gameEvents.onBoxClick)
 
   $('#new-game').on('click', gameEvents.onCreateGame)
