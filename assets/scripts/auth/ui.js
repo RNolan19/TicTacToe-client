@@ -76,7 +76,9 @@ const onSignOutSuccess = function (responseData) {
   $('#sign-out').hide()
   $('.h2signout').hide()
   $('#new-game').hide()
-
+  $('#get-record').hide()
+  $('.h2newgame').hide()
+  $('#gameboard').hide()
 }
 
 const onSignOutFailure = function () {
