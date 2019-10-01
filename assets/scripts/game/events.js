@@ -49,40 +49,51 @@ const isGameOver = function () {
     gameOver = true
     checkForWin()
   } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[3] && store.game.cells[3] === store.game.cells[6]) {
-    // endGame()
-    checkForWin()
     gameOver = true
+    checkForWin()
     console.log('You connected row 036. You Win!')
   } else if (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8]) {
     console.log('You connected row 048.  You win!')
-    checkForWin()
     gameOver = true
+    checkForWin()
   } else if (store.game.cells[1] !== '' && store.game.cells[1] === store.game.cells[4] && store.game.cells[4] === store.game.cells[7]) {
     console.log('You connected row 147.  You win!')
-    checkForWin()
     gameOver = true
+    checkForWin()
   } else if (store.game.cells[2] !== '' && store.game.cells[2] === store.game.cells[5] && store.game.cells[5] === store.game.cells[8]) {
     console.log('You connected row 258.  You win!')
-    checkForWin()
     gameOver = true
+    checkForWin()
   } else if (store.game.cells[2] !== '' && store.game.cells[2] === store.game.cells[4] && store.game.cells[4] === store.game.cells[6]) {
     console.log('You connected row 246.  You win!')
-    checkForWin()
     gameOver = true
+    checkForWin()
   } else if (store.game.cells[3] !== '' && store.game.cells[3] === store.game.cells[4] && store.game.cells[4] === store.game.cells[5]) {
     console.log('You connected row 345. You win!')
-    checkForWin()
     gameOver = true
+    checkForWin()
   } else if (store.game.cells[6] !== '' && store.game.cells[6] === store.game.cells[7] && store.game.cells[7] === store.game.cells[8]) {
     console.log('You connected row 678.  You win!')
-    checkForWin()
     gameOver = true
+    checkForWin()
   } else if (counter === 9) {
     checkForWin()
   }
 }
 
 const checkForWin = function () {
+  if (gameOver === true && counter % 2 === 1) {
+    $('#message').text("Player X wins!  You are a Tic Tac Toe Maestro!  Click 'New Game' to play again and keep the winning streak alive!")
+  } else if (gameOver === true && counter % 2 === 0) {
+    $('#message').text("Player O wins!  You are a Tic Tac Toe Prodigy!  Click 'New Game' to play again and keep the winning streak alive!")
+  } else if (counter === 9 && gameOver === false) {
+    $('#message').text("It's a tie.  You can't end on a draw.  Click 'New Game' to play again!")
+  }
+  $('#gameboard').hide()
+  switchPlayer('X')
+}
+
+/* const checkForWin = function () {
   if (counter === 9 && gameOver === false) {
     $('#message').text("It's a tie.  You can't end on a draw.  Click 'New Game' to play again!")
   } else if (counter % 2 === 1) {
@@ -93,7 +104,7 @@ const checkForWin = function () {
   $('#gameboard').hide()
   switchPlayer('X')
 }
-
+*/
 const onBoxClick = function (event) {
   event.preventDefault()
 
