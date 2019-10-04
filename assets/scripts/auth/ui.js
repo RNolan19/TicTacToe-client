@@ -18,10 +18,12 @@ const onSignUpSuccess = function () {
   successMessage('Signed up successfully!')
   $('#sign-up').hide()
   $('.h2signup').hide()
+  $('#sign-up').trigger('reset')
 }
 
 const onSignUpFailure = function () {
   failureMessage('Sign Up Failed')
+  $('#sign-up').trigger('reset')
 }
 
 // responseData is just a parameter.  It is the data the API sends back when we make a request
@@ -50,6 +52,7 @@ const onSignInSuccess = function (responseData) {
 
 const onSignInFailure = function () {
   failureMessage('Sign In Failed')
+  $('#sign-in').trigger('reset')
 }
 
 const onChangePasswordSuccess = function () {

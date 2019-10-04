@@ -8,18 +8,32 @@ body {
   background-color: $body-bg-color;
 }
 
+.container {
+  height: 70vmin;
+  margin: auto;
+  width: 170vmin;
+}
+
 .box {
-  align-items: center;
   background-color: $secondary;
   border: 2px solid $white;
   color: $font-color;
   display: flex;
+  font-size: 15vmin;
   height: 180px;
   justify-content: center;
 }
 
 .alt-color {
   background-color: $alt-color;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  color: blue;
+  display: flex;
+  justify-content: center;
 }
 
 .success {
