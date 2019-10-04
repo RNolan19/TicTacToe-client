@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+     <section>
+       <h1 class='header'>Welcome to Tic Tac Toe: The Most Exciting Game In The World!</h1>
+       <h2 id="message"></h2>
+
+       <h2 class = "h2signup">Sign Up</h2>
+       <form id="sign-up">
+       <input type="email"name="credentials[email]" placeholder="Enter email...">
+       <input type="password" name="credentials[password]" placeholder="Enter password..">
+       <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
+       <button> Sign Up!</button>
+     </form>
+
+      <h2 class="h2signin">Sign In</h2>
+      <form id="sign-in">
+      <input type="email" name="credentials[email]" placeholder="Enter Email....">
+      <input type="password" name="credentials[password]" placeholder="Enter Password...">
+      <button> Sign In!</button>
+    </form>
+
+    <h2 class="h2changepassword">Change Password</h2>
+    <form id="change-password">
+      <input type="password" name="passwords[old]" placeholder="Enter old password....">
+      <input type="password" name="passwords[new]" placeholder="Enter new password....">
+      <button>Change Password!</button>
+    </form>
+
+    <h2 class="h2signout">Sign Out</h2>
+      <form id="sign-out">
+        <button>Sign Out!</button>
+      </form>
+
+      <br>
+      <h2 class="h2newgame">New Game</h2>
+
+      <form id="new-game">
+      <button>New Game</button>
+      </form>
+      </section>
+
+      <form id="get-record">
+      <button>See How Many Games You"ve Played!</button>
+      </form>
+
+      <section id="gameboard">
+      <div class="container">
+
+        <div class="row">
+          <div id="0" class="col-2 box alt-color"></div>
+          <div id="1" class="col-2 box alt-color"></div>
+          <div id="2" class="col-2 box alt-color"></div>
+        </div>
+
+        <div class="row">
+          <div id="3" class="col-2 box alt-color"></div>
+          <div id="4" class="col-2 box alt-color"></div>
+          <div id="5" class="col-2 box alt-color"></div>
+        </div>
+
+        <div class="row">
+          <div id="6" class="col-2 box alt-color"></div>
+          <div id="7" class="col-2 box alt-color"></div>
+          <div id="8" class="col-2 box alt-color"></div>
+        </div>
+
+      </div>
+      </section>
+</html>
